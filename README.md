@@ -10,6 +10,7 @@ to your editor, just type:
   require 'mkspec'
 
   include Mkspec
+  
   expect(sut.expect(sut, :calculate, "1+1").to(sut.eq(1+1))
 
 and it will generate:
