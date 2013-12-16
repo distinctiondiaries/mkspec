@@ -11,11 +11,11 @@ to your editor, just type:
 
   include Mkspec
   
-  expect(sut.expect(sut, :calculate, "1+1").to(sut.eq(1+1))
+  expect(calculator, :calculate, "1+1").to(eq(1+1))
 
 and it will generate:
 
-  describe SystemUnderTest do
+  describe Calculator do
     subject {described_class.new}
 
     describe "#calculate" do
