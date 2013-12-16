@@ -1,0 +1,28 @@
+require_relative '../lib/mkspec'
+
+describe Mkspec do
+
+  it "is a DSL for building specs" do
+    class SystemUnderTest
+    end
+    sut = SystemUnderTest.new
+
+    sut.extend described_class
+    expect(sut.expect(sut, :calculate, "1+1").to(sut.eq(1+1)).to_s).to eq(
+      <<-GENERATED_SPEC
+describe SystemUnderTest do
+  subject {described_class.new}
+
+  describe "#calculate" do
+
+    it "does something" do
+      expect(subject.calculate("1+1").to eq(2)
+    end
+
+  end
+end
+      GENERATED_SPEC
+    )
+  end
+
+end
