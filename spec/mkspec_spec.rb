@@ -16,7 +16,7 @@ describe SystemUnderTest do
   describe "#calculate" do
 
     it "does something" do
-      expect(subject.calculate("1+1").to eq(2)
+      expect(subject.calculate("1+1")).to eq(2)
     end
 
   end

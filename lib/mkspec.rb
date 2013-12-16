@@ -20,7 +20,7 @@ describe #{@class_name} do
   describe "##{@method_name}" do
 
     it "does something" do
-      expect(subject.#{@method_name}("#{@args}").to #{matcher}
+      expect(subject.#{@method_name}("#{@args}")).to #{matcher}
     end
 
   end
