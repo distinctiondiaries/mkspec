@@ -7,25 +7,25 @@ Whilst mucking around in your Ruby REPL (probably Pry), you decide you
 need a spec to describe your next great feature. Instead of jumping back
 to your editor, just type:
 
-  require 'mkspec'
+    require 'mkspec'
 
-  include Mkspec
-  
-  expect(calculator, :calculate, "1+1").to(eq(1+1))
+    include Mkspec
+    
+    expect(calculator, :calculate, "1+1").to(eq(1+1))
 
 and it will generate:
 
-  describe Calculator do
-    subject {described_class.new}
+    describe Calculator do
+      subject {described_class.new}
 
-    describe "#calculate" do
+      describe "#calculate" do
 
-      it "does something" do
-        expect(subject.calculate("1+1").to eq(2)
+        it "does something" do
+          expect(subject.calculate("1+1").to eq(2)
+        end
+
       end
-
     end
-  end
 
 WIP
 ===
