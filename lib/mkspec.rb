@@ -1,9 +1,5 @@
 module Mkspec
 
-  class Matcher
-
-  end
-
   class LeftHand
 
     def initialize(class_name, method_name, args)
@@ -31,11 +27,8 @@ end
     # Attempt to recreate the source-code to represent this argument in the setup
     # for our generated spec.
     def serialise(arg)
-      case arg.class.name
-      when 'String'
-        %Q('#{arg}')
-      when 'Fixnum'
-        arg
+      if %w(Array Hash Float Fixnum String).include? arg.class.name
+        arg.pretty_inspect.chop
       else
         guess_constructor arg
       end
@@ -45,7 +38,7 @@ end
     # in source code. So we'll take a guess at what might work and
     # let the user fix it up if necessary.
     def guess_constructor(arg)
-      "#{arg.class.name}.new('#{arg.to_s}')"
+      "#{arg.class.name}.new(#{serialise(arg.to_s)})"
     end
   end
 

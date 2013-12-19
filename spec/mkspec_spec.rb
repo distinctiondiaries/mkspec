@@ -17,7 +17,7 @@ describe SystemUnderTest do
   describe "#calculate" do
 
     it "does something" do
-      expect(subject.calculate('1+1')).to eq(2)
+      expect(subject.calculate("1+1")).to eq(2)
     end
 
   end
@@ -42,7 +42,7 @@ end
     sut = SystemUnderTest.new
 
     sut.extend described_class
-    expect(sut.expect(sut, :calculate, CustomType.new('1'), '+', 1).to(sut.eq(1+1)).to_s).to eq(
+    expect(sut.expect(sut, :calculate, CustomType.new('1'), '+', 5.4, {formats:[:pdf, 'html']}).to(sut.eq(1+5.4)).to_s).to eq(
       <<-GENERATED_SPEC
 describe SystemUnderTest do
   subject {described_class.new}
@@ -50,7 +50,7 @@ describe SystemUnderTest do
   describe "#calculate" do
 
     it "does something" do
-      expect(subject.calculate(CustomType.new('1'), '+', 1)).to eq(2)
+      expect(subject.calculate(CustomType.new("1"), "+", 5.4, {:formats=>[:pdf, "html"]})).to eq(6.4)
     end
 
   end
