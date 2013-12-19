@@ -1,3 +1,4 @@
 source 'https://rubygems.org'
 
-gem "rspec"
+# Specify your gem's dependencies in mkspec.gemspec
+gemspec
