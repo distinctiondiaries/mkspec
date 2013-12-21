@@ -1,5 +1,5 @@
-require_relative '../lib/mkspec'
-require 'pry'
+require 'spec_helper'
+
 
 describe Mkspec do
 

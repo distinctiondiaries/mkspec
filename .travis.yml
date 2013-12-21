@@ -1,5 +1,8 @@
 language: ruby
+
+# Required to prevent travis from using bundle install --deployment
 bundler_args:
+
 rvm:
   - "1.9.2"
   - "1.9.3"
@@ -7,4 +10,8 @@ rvm:
 #  - rbx-19mode
 # uncomment this line if your project needs to run something other than `rake`:
 # # script: bundle exec rspec spec
+
+addons:
+    code_climate:
+        repo_token: 66f413f9c50c6bc2d265e217df307f5de8bf36d8ad97feffb76b0174e9f9acd5
 
