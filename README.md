@@ -43,9 +43,7 @@ Add this to your Gemfile:
 
     gem 'mkspec'
 
-and run bundle at the command prompt to install it:
-
-    bundle
+and run `bundle` at the command prompt to install it.
 
 
 Usage
