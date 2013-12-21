@@ -1,5 +1,6 @@
 Mkspec
 ======
+[![Gem Version](https://badge.fury.io/rb/mkspec.png)](http://badge.fury.io/rb/mkspec)
 [![Build Status](https://travis-ci.org/ritchiey/mkspec.png?branch=master)](https://travis-ci.org/ritchiey/mkspec)
 [![Code Climate](https://codeclimate.com/repos/52b530917e00a45ef600294e/badges/9bce4690fe2eca6f2062/gpa.png)](https://codeclimate.com/repos/52b530917e00a45ef600294e/feed)
 
