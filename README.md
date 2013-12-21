@@ -1,5 +1,6 @@
 Mkspec
 ======
+[![Build Status](https://travis-ci.org/ritchiey/mkspec.png?branch=master)](https://travis-ci.org/ritchiey/mkspec)
 
 Generate your Ruby specs straight from your REPL
 
