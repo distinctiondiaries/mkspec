@@ -7,10 +7,9 @@ Whilst mucking around in your Ruby REPL (probably Pry), you decide you
 need a spec to describe your next great feature. Instead of jumping back
 to your editor, just type:
 
-    require 'mkspec'
-    include Mkspec
+    extend Mkspec
     
-    expect(calculator, :calculate, "1+1").to(eq(1+1))
+    puts expect(calculator, :calculate, "1+1").to(eq(1+1))
 
 and it will generate:
 
@@ -25,6 +24,44 @@ and it will generate:
 
       end
     end
+    
+You can then copy and paste that spec into a file and edit to taste. It's not perfect but it does give you a headstart with some of the boiler-plate.
+
+Motivation
+==========
+
+The advantage of generating the spec from within Pry is that you are working with real values from the calling method. This enables you to just put `binding.pry` at the top of a method you need to implement and generate a realistic spec for it based on the values it actually received when called.
+
+
+Installation
+============
+
+Add this to your Gemfile:
+
+    gem 'mkspec'
+
+and run bundle at the command prompt to install it:
+
+    bundle
+
+
+Usage
+=====
+
+Where possible, mkspec syntax follows that of RSpec so it will hopefully be familiar.
+
+    expect(object_to_test, method, params...).to eq(expected_value)
+
+
+It uses Ruby's PrettyPrint to serialise `params` and `expected_value` so it correctly serializes Hashes and Arrays.
+
+See the specs for more examples of usage.
+
+
+Bugs
+====
+
+Mkspec does what it can to create a useful spec from the values it can introspect. It doesn't always get it right though so you'll very likely need to edit the generated spec a little.
 
 WIP
 ===
