@@ -37,6 +37,11 @@ module Mkspec
     end
 
     def to(matcher)
+      @matcher = matcher
+      self
+    end
+
+    def to_s
       <<-EOF
 describe #{@class_name} do
   subject {described_class.new}
@@ -44,7 +49,7 @@ describe #{@class_name} do
   describe "##{@method_name}" do
 
     it "does something" do
-      #{matcher.perform(action)}
+      #{@matcher.perform(action)}
     end
 
   end
@@ -53,7 +58,6 @@ end
     end
 
     def action
-      
       "subject.#{@method_name}#{parameters}"
     end
 
