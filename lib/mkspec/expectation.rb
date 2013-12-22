@@ -5,6 +5,7 @@ class Expectation
     @class_name = class_name
     @method_name = method_name
     @args = args
+    @explanation = "does something"
   end
 
   attr_reader :inclination
@@ -21,6 +22,11 @@ class Expectation
     self
   end
 
+  def as(explanation)
+    @explanation = explanation
+    self
+  end
+
   def to_s
     <<-EOF
 describe #{@class_name} do
@@ -28,7 +34,7 @@ describe #{@class_name} do
 
   describe "##{@method_name}" do
 
-    it "does something" do
+    it "#{@explanation}" do
       #{@matcher.match(self)}
     end
 
