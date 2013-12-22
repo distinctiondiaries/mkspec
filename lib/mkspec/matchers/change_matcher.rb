@@ -14,8 +14,8 @@ module Mkspec
         self
       end
 
-      def perform(action)
-        %Q{expect{ #{action} }.to change(#{@obj}, :count).by(#{@quantity})}
+      def match(expectation)
+        %Q{expect{ #{expectation.action} }.#{expectation.inclination} change(#{@obj}, :count).by(#{@quantity})}
       end
 
     end

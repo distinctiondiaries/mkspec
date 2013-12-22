@@ -8,8 +8,8 @@ module Mkspec
         @expected = expected
       end
 
-      def perform(action)
-        "expect(#{action}).to eq(#{@expected})"
+      def match(expectation)
+        "expect(#{expectation.action}).#{expectation.inclination} eq(#{@expected})"
       end
     end
 

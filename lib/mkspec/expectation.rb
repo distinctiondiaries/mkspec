@@ -7,7 +7,16 @@ class Expectation
     @args = args
   end
 
+  attr_reader :inclination
+
   def to(matcher)
+    @inclination = 'to'
+    @matcher = matcher
+    self
+  end
+
+  def not_to(matcher)
+    @inclination = 'not_to'
     @matcher = matcher
     self
   end
@@ -20,7 +29,7 @@ describe #{@class_name} do
   describe "##{@method_name}" do
 
     it "does something" do
-      #{@matcher.perform(action)}
+      #{@matcher.match(self)}
     end
 
   end

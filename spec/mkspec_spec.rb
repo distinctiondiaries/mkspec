@@ -26,6 +26,29 @@ end
     )
   end
 
+  it "can generate negative tests" do
+    class SystemUnderTest
+    end
+    sut = SystemUnderTest.new
+
+    sut.extend described_class
+    expect(sut.expect(sut, :calculate, "1+1").not_to(sut.eq(1+1)).to_s).to eq(
+      <<-GENERATED_SPEC
+describe SystemUnderTest do
+  subject {described_class.new}
+
+  describe "#calculate" do
+
+    it "does something" do
+      expect(subject.calculate("1+1")).not_to eq(2)
+    end
+
+  end
+end
+      GENERATED_SPEC
+    )
+  end
+
 
   it "can generate specs for methods with varying arity and parameter types" do
     class CustomType
