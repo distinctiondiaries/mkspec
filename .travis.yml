@@ -6,13 +6,11 @@ rvm:
 addons:
   code_climate:
     repo_token: 66f413f9c50c6bc2d265e217df307f5de8bf36d8ad97feffb76b0174e9f9acd5
-
-# Travis auto-release didn't seem to work.
-#deploy:
-  #provider: rubygems
-  #api_key:
-    #secure: faZ3mmXGnvFJPzG5kWtzorKomCntF0n7iUfcTsq7sjJAw4FcWZEaiOu3H6g8nhiSaYhyGX/hMAV/coqYZqHduxlnsKw9rfFSz4yzVNGShLexthXJ4VHa0Iq+GDugY+mxY3cGGOIuIN6Rldc/eVamvZ3LHsLGybDa/D3+b8AdyYI=
-  #gem: mkspec
-  #on:
-    #tags: true
-    #repo: ritchiey/mkspec
+deploy:
+  provider: rubygems
+  api_key:
+    secure: WLQzsGZ6aPzqsyS1Mu4YCZjer4ZXRFQo5j1XPkTdR/bYmip2GBQAoVIUihlIXrcTSDKRk4VVZ62GkVSOkTA41vAVvD69ARGNIgwSDzLfoVp7RWEIi7peUBdYhzOoQM8eFnOKa3UeZbEqjolsTjtQfMQISNCeL9TCmdRcyLa/avk=
+  gem: mkspec
+  on:
+    tags: true
+    repo: ritchiey/mkspec
