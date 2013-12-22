@@ -28,7 +28,7 @@ module Mkspec
 
   end
 
-  class LeftHand
+  class Expectation
 
     def initialize(class_name, method_name, args)
       @class_name = class_name
@@ -84,7 +84,7 @@ end
   end
 
   def expect(sut, method, *args)
-    LeftHand.new(sut.class.name, method, args)
+    Expectation.new(sut.class.name, method, args)
   end
 
   def eq(expected)
