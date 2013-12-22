@@ -59,4 +59,28 @@ end
     )
   end
 
+  it "can generate specs with change type matchers" do
+    class Fish
+    end
+    sut = Fish.new
+
+    sut.extend described_class
+    expect(
+      sut.expect(sut, :save).to(sut.change(Fish, :count).by(1)).to_s).to eq(
+      <<-GENERATED_SPEC
+describe Fish do
+  subject {described_class.new}
+
+  describe "#save" do
+
+    it "does something" do
+      expect{ subject.save }.to change(Fish, :count).by(1)
+    end
+
+  end
+end
+      GENERATED_SPEC
+    )
+  end
+
 end
